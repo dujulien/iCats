@@ -58,13 +58,13 @@
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
-                    <li class="active"><a href="index.html">Home</a></li>
+                    <li class="active"><a href="<%= root_path %>">Home</a></li>
                     <% if current_user %>
-                        <li><a href="<%= cart_path(current_user.id) %>">Cart</a></li>
+                        <li><a href="<%= cart_path(current_user.id) %>">Cart (<%= current_user.cart.items.size %>)</a></li>
+                        <!-- Bouton My Profile à créer -->
                     <% else %>
-                        <li><a href="#">Cart</a></li>
+                        <li><a href="<%= new_user_session_path %>">Cart</a></li>
                     <% end %>
-                    <li><a href="checkout.html">Checkout</a></li>
                 </ul>
             </nav>
             <!-- Button Group -->
@@ -88,6 +88,7 @@
                 <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             </div>
         </header>
+
         <!-- Header Area End -->
     <%= yield %>
         <!-- ##### Main Content Wrapper End ##### -->
@@ -167,6 +168,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             </div>
         </div>
     </footer>
+
     <!-- ##### Footer Area End ##### -->
   </body>
 </html>
