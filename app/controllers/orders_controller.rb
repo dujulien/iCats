@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
       	@ordered_items.each do |item|
         		@purchase << Item.find(item.item_id)
       	end
-  	end    
+  	end
 
   	def new
   	end
