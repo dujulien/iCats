@@ -17,7 +17,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <% @order.items.each do |item| %>
+                            <% @purchase.each do |item| %>
                                 <tr>
                                     <td class="cart_product_img">
                                         <a href="#"><img src="/assets/<%= item.id %>.jpg" alt="Product <%= item.id %>"></a>
@@ -48,12 +48,15 @@
                     <div class="cart-summary">
                         <h5>Cart Total</h5>
                         <ul class="summary-table">
-                            
+
                             <li><span>delivery:</span> <span>Free</span></li>
 
                         </ul>
-                        <div class="cart-btn mt-100">
-                            <a href="cart.html" class="btn amado-btn w-100">Follow my order</a>
+                        <div class="cart-btn mt-10">
+                            <%= link_to "checkout", order_path, class: "btn amado-btn w-100", data: { turbolinks: false }%>
+                        </div>
+                        <div class="cart-btn mt-15">
+                            <%= link_to "revenir au panier", cart_path, class: "btn amado-btn w-100", data: { turbolinks: false }%>
                         </div>
                     </div>
                 </div>
