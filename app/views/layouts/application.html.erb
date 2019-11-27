@@ -61,7 +61,7 @@
                     <li class="active"><a href="<%= root_path %>">Home</a></li>
                     <% if current_user %>
                         <li><a href="<%= cart_path(current_user.id) %>">Cart (<%= current_user.cart.items.size %>)</a></li>
-                        <!-- Bouton My Profile à créer -->
+                        <li><a href="<%= users_show_path %>">My profile</a></li>
                     <% else %>
                         <li><a href="<%= new_user_session_path %>">Cart</a></li>
                     <% end %>
