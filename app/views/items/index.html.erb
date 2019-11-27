@@ -37,8 +37,7 @@
 	                            <p>From $<%= item.price.round(1) %></p>
 	                            <h4><%= item.title %></h4>
                                 <% if current_user %>
-                                    <%= link_to ('<i class="fa fa-cart-arrow-down", style="font-size: 3em; color: #fbb710"></i>').html_safe, items_path %>
-                                    
+                                    <%= link_to ('<i class="fa fa-cart-arrow-down", style="font-size: 3em; color: #fbb710"></i>').html_safe, {:controller => "cart_contents", :action => "create", :item_id => item.id}, method: :post %>
                                 <% end %>
 	                        </div>
 	                    </a>

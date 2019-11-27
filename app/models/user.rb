@@ -4,12 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-	after_create :welcome_send
+	after_create :welcome_send, :create_cart
 	has_one :cart
 	has_many :orders
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
+  end
+
+  def create_cart
+    Cart.create(user: self)
   end
 
 end

@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'faker'
 gem 'table_print'
 gem 'devise'
+gem 'dotenv-rails'
 gem 'stripe'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

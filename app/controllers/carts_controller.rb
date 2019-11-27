@@ -1,10 +1,13 @@
 class CartsController < ApplicationController
-before_action :authenticate_user!
+
+
+	before_action :authenticate_user!, only: [:create, :show]
+
 	def index
 	end
 
 	def show
-		@cart = Cart.find(params[:id])
+		@cart = Cart.find_by(user: current_user)
 		@order = Order.find(params[:id])
 	end
 

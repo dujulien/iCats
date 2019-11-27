@@ -4,17 +4,36 @@
 
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style type="text/css">
+      p { font-size: 20px;  }  
+      div { text-align: center; font-family: Georgia, serif;  } 
+    </style> 
+
   </head>
   
   <body>
-    <h1>Salut <%= @user.name %> et bienvenue chez nous !</h1>
-    <p>
-      Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant : <%= @user.email %>.
-    </p>
-    <p>
-      Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
-    </p>
-    <p> À très vite sur monsite.fr !
+    
+    <div>
+
+      <h1 style="color: #fbb710">Bonjour <%= @user.name %> <br> bienvenue sur icats !</h1>
+      <br>
+      <p>
+        Tu t'es inscrit sur <span style="color: #fbb710">iCats.fr</span> en utilisant l'e-mail suivant : <%= @user.email %>.
+      </p>
+      <p>
+        Pour accéder à ton espace client, connecte-toi via : <%=  %>.
+      </p>
+      <br>
+      <p> À très vite sur iCats !
+        <br><br>
+
+    </div>
+
+    <div  style="font-size: 12px;" >
+    Vous recevez ce mail car vous venez de vous inscrire sur iCats.fr. Le site qui a de jolies photos de petits chats.
+    </div>
+  
   </body>
 
 </html>
+
