@@ -12,8 +12,7 @@ Rails.application.routes.draw do
  	resources :charges, :path => "paiment"
   resources :orders, :path => "ma_commande"
   resources :cart_contents, only: [:create, :destroy]
-
-
+end
 # namespace :admin do
 # resources :articles
 # end
