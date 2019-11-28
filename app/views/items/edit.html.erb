@@ -1,0 +1,45 @@
+   
+            
+    <div class="col-6 formbloc">
+     <div class="card card-signin my-4">
+        <div class="card-body">
+          <div class="text-center mb-4">
+            <h2 class= h3-mb-0>Please Sign Up</h2>
+            <p> Fill out the form to get started</p>
+          </div>
+
+             <h2 class= h3-mb-0></h2>
+                    <h3>Edit item n°<%=@item.id%></h1>
+                    <div class="container">  
+                  <br>
+
+                  <%= form_tag item_path(@item.id), method: :patch do %>
+
+                    <%= label_tag 'Titre'%>
+                      <div class="form-label-group">
+                        <%= text_field_tag 'title', value = @item.title, class:"form-control" %>
+                      </div>
+
+                    <%= label_tag 'Description' %>
+                      <div class="form-label-group">
+                        <%= text_area_tag 'description', value = @item.description, class:"form-control"%>
+                      </div>
+
+                    <%= label_tag 'Prix' %>
+                      <div class="form-label-group">
+                        <%= text_field_tag 'price', value = @item.price, class:"form-control" %>
+                      </div>
+
+                      <div class="actions mt-5">
+                        <%= submit_tag "Update", class:"btn amado-btn w-100 " %>
+                      </div>
+
+                  <% end %>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+

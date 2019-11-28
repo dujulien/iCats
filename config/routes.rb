@@ -5,13 +5,14 @@ Rails.application.routes.draw do
 
 
   devise_for :users
+ 	resources :items do
+ 		resources :pictures, only: [:create]
+ 	end
   resources :carts, :path => "mon_panier"
- 	resources :items
  	resources :charges, :path => "paiment"
   resources :orders, :path => "ma_commande"
   resources :cart_contents, only: [:create, :destroy]
 end
-
 # namespace :admin do
 # resources :articles
 # end
