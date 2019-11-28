@@ -20,29 +20,25 @@ tp Item.all
 end
 tp User.all
 
-5.times do |i|
-	Cart.create(user: User.find(i+1))
-end
 tp Cart.all
 
 5.times do |i|
 	5.times do |j|
 		CartContent.create(cart: Cart.find(i+1), item: Item.find(rand(1..9)))
 	end
-#end
+end
 
-	tp CartContent.all
+tp CartContent.all
 
-	5.times do |i|
-		Order.create(user: User.find(i+1))
+5.times do |i|
+	Order.create(user: User.find(i+1))
+end
+tp Order.all
+
+5.times do |i|
+	5.times do |j|
+		JointTableOrderItem.create(order: Order.find(i+1), item: Item.find(rand(1..9)))
 	end
-	tp Order.all
+end
+tp JointTableOrderItem.all
 
-	5.times do |i|
-		5.times do |j|
-			JointTableOrderItem.create(order: Order.find(i+1), item: Item.find(rand(1..9)))
-		end
-	end
-	tp JointTableOrderItem.all
-
-end #end of class

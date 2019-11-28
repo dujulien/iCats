@@ -1,17 +1,16 @@
 class CartContentsController < ApplicationController
-	before_action :authenticate_user!, only: [:create]
+	before_action :authenticate_user!, only: [:create, :destroy]
 
 	def create
 		@item = Item.find(params[:item_id])
-		puts "$"*20
-		puts @item
-		puts "$"*20	
 		@cart = Cart.find_by(user: current_user)
-		puts "$"*20
-		puts @cart
-		puts "$"*20
 		CartContent.create(cart: @cart, item: @item)
-		redirect_to root_path
+    redirect_to request.referrer
+	end
+
+	def destroy
+		@cart_content = CartContent.find(params[:id])
+		@cart_content.destroy
 	end
 
 end

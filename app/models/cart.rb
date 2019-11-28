@@ -11,4 +11,9 @@ class Cart < ApplicationRecord
 		total_price.round(2)
 	end
 
+	def empty_cart
+		self.cart_contents.each do |content| 
+			content.destroy
+		end
+	end
 end

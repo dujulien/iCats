@@ -1,28 +1,40 @@
 class ChargesController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
+  
+  def new
+  end
+
+  def create
+    # Amount in cents
+    @amount = (current_user.cart.total_price * 100).to_i
+
+    customer = Stripe::Customer.create({
+      email: params[:stripeEmail],
+      source: params[:stripeToken],
+    })
+
+    charge = Stripe::Charge.create({
+      customer: customer.id,
+      amount: @amount,
+      description: 'Rails Stripe customer',
+      currency: 'eur',
+    })
+    #Create a new order
+    Order.create(stripe_id: params[:stripeToken], user: current_user)
+    
+    #Create order content
+    current_user.cart.items.each do |item|
+      JointTableOrderItem.create(order: Order.find_by(stripe_id: params[:stripeToken]), item: item)
+    end
+
+    current_user.cart.empty_cart
+    
+    UserMailer.order_email(current_user).deliver_now
+
+    redirect_to :controller => 'items', :action => 'index'
+  end
+
 end
 
 
 
-def new
-end
-
-def create
-  # Amount in cents
-  @amount = 500
-
-  customer = Stripe::Customer.create({
-    email: params[:stripeEmail],
-    source: params[:stripeToken],
-  })
-
-  charge = Stripe::Charge.create({
-    customer: customer.id,
-    amount: @amount,
-    description: 'Rails Stripe customer',
-    currency: 'usd',
-  })
-
-rescue Stripe::CardError => e
-  flash[:error] = e.message
-  redirect_to new_charge_path
-end
