@@ -13,12 +13,11 @@ class UserMailer < ApplicationMailer
 
   def order_email(user)
   	@user = user 
-
+  	@content = user.cart.items
   	# c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
     mail(to: @user.email, subject: 'Merci pour votre commande sur iCats !') 
   	
   	# Commande pour envoi du mail order
-  	# UserMailer.order_confirmation_send(self).deliver_now
 
   end
 
