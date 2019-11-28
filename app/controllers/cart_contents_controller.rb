@@ -11,6 +11,7 @@ class CartContentsController < ApplicationController
 	def destroy
 		@cart_content = CartContent.find(params[:id])
 		@cart_content.destroy
+    redirect_to request.referrer
 	end
 
 end
