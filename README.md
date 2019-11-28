@@ -3,10 +3,11 @@
 
 TEAM
 
+* Ombeline
 * Marius 
 * Yoni
 * Julien
-* youcef
+* Youcef
 
 
 LIEN HEROKU
