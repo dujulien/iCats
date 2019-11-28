@@ -3,7 +3,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-8">
                         <div class="cart-title mt-50">
-                            <h2>Settings</h2>
+                            <h2>My profile</h2>
                         </div>
 
 
@@ -15,38 +15,35 @@
                         <div class="cart-table clearfix">
                             <table class="table table-responsive">
                                 <thead>
-                                 <h4>Mes commandes passées</h4>
+                                 <h4>My orders</h4>
 
                                     <tr>
-                                       <th> </th>
-
-                                        <th> Name</th>
+                                        <th>Name</th>
                                         <th>Price</th>
                                     </tr>
 
                                  
                                 <tbody>
-                                    <% current_user.cart.items.each do |item| %>
-                                    <tr>
-                                        <td class="cart_product_img">
-                                           
-                                        </td>
-                                        <td class="cart_product_desc">
-                                            <h5><%= item.title %></h5>
-                                        </td>
-                                        <td class="price">
-                                            <span><%= item.price %> €</span>
-                                        </td>
-                                        <td class="qty">
-                                            <div class="qty-btn d-flex">
-                           
+                                    <% current_user.orders.each do |order| %>
+                                        <% order.items.each do |item| %>
+                                            <tr>
+                                                <td class="cart_product_desc">
+                                                    <h5><%= item.title %></h5>
+                                                </td>
+                                                <td class="price">
+                                                    <span><%= item.price %> €</span>
+                                                </td>
+                                                <td class="qty">
+                                                    <div class="qty-btn d-flex">
+                                   
 
-                                          
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                <% end %>
+                                                  
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <% end %>
+                                    <% end %>
                                 </tbody>
 
 
@@ -64,21 +61,17 @@
                             <table class="table table-responsive">
                                 <thead>
 
-                             <h4>Mes informations</h4>
+                             <h4>My infos</h4>
 
                                     <tr>
-<th></th>
-                                        <th  >Adresse E-mail</th>
-                         
+                                        <th>Adresse E-mail</th>
                                     </tr>
 
 
                                 <tbody>
 
     								<tr>
-    									<td></td>
                                       <td class="cart_product_img"> <%= current_user.email %> </td>   
-
                                     </tr>
 
 
@@ -102,7 +95,7 @@
 <!---------------------------------------------------------------------------------------------------->
                           
                             <div class="cart-btn mt-1000">
-                                <a href="<%=  edit_user_registration_path %>" class="btn amado-btn w-100">Modifier mes informations</a> 	                
+                                <a href="<%=  edit_user_registration_path %>" class="btn amado-btn w-100">Update my infos</a> 	                
 
                             </div>
 
