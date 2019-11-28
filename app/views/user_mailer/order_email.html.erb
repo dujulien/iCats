@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-
 <html>
-
   <head>
-
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
     <style type="text/css">
       p { font-size: 20px; font-family: Georgia, serif; }  
@@ -11,25 +8,30 @@
       table { font-size: 20px; font-family: Georgia, serif; } 
       td { color: #4E4E4E; width: 150px; }
     </style> 
-
   </head>
-  
   <body>
-    
     <div>
       <img src="/assets/logo.png" alt="iCats logo" />
+      <%= image_tag "logo.png" %>
+
       <br>
       <br>
       <p>
-        Voici votre récapitulatif de votre commande : 
+        Voici votre récapitulatif de votre commande <%= @user.name %>: 
       </p>
-
-
+      <table align="center">
+      <% @content.each do |item| %>
+        <tr>
+            <td><%= image_tag item.picture %></td>
+            <td> <%= item.title %> </td>
+            <td> <%= item.description %> </td>
+        </tr>
+      <% end %> 
+      </table>
+      <br>
+      <br>
     <div  style="font-size: 12px;" >
     Vous recevez ce mail car vous venez d'effectuer une commande sur iCats.fr. Le site qui a de jolies photos de petits chats.
     </div>
-  
   </body>
-
 </html>
-

@@ -24,13 +24,17 @@
             <div class="amado-pro-catagory clearfix">
 
 				<div class="row">
-				<% @items.each_with_index do |item, i| %>
+				<% @items.sort_by(&:id).each_with_index do |item, i| %>
                 <!-- Single Catagory -->
 	                <div class="single-products-catagory clearfix", style='height:250pt;'>
 	                    <a href="<%= item_path(item.id) %>">
 	                    	<span class="grayscale" >
-	                        	<img src="/assets/<%= i+1 %>.jpg" alt="">
-	                    	</span>
+                                <% if item.picture.attached? %>
+                                    <%= image_tag item.picture %>
+                                <% else %>
+                                    <img src="/assets/<%= item.id %>.jpg", alt""/>
+                                <% end %>	                    	
+                            </span>
 	                        <!-- Hover Content -->
 	                        <div class="hover-content">
 	                            <div class="line"></div>

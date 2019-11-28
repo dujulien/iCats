@@ -4,7 +4,9 @@ Rails.application.routes.draw do
  	root to: "items#index"
   devise_for :users
   resources :carts
- 	resources :items
+ 	resources :items do
+ 		resources :pictures, only: [:create]
+ 	end
  	resources :charges
   resources :orders
   resources :cart_contents, only: [:create, :destroy]
