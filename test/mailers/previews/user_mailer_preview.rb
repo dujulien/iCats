@@ -6,4 +6,9 @@ class UserMailerPreview < ActionMailer::Preview
 		UserMailer.welcome_email(User.last)
 	end
 
+# Preview this email at http://localhost:3000/rails/mailers/user_mailer/order_email
+	def order_email
+		UserMailer.order_email(User.last)
+	end
+
 end

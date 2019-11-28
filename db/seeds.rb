@@ -10,6 +10,7 @@ require 'faker'
 require 'table_print'
 Item.destroy_all
 
+
 9.times do
 Item.create(title: Faker::Creature::Cat.name, description: Faker::Creature::Cat.breed, price: Faker::Number.decimal(l_digits: 2), image_url: "<img src='i+1.png' alt''/>")
 end
@@ -18,9 +19,9 @@ tp Item.all
 5.times do
 	User.create(name: Faker::Name.first_name, email: Faker::Internet.email, password: "AZERTY" )
 end
-tp User.all
 
 tp Cart.all
+
 
 5.times do |i|
 	5.times do |j|
@@ -35,10 +36,12 @@ tp CartContent.all
 end
 tp Order.all
 
+
 5.times do |i|
 	5.times do |j|
 		JointTableOrderItem.create(order: Order.find(i+1), item: Item.find(rand(1..9)))
 	end
 end
 tp JointTableOrderItem.all
+
 
