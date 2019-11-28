@@ -27,10 +27,11 @@ class ChargesController < ApplicationController
       JointTableOrderItem.create(order: Order.find_by(stripe_id: params[:stripeToken]), item: item)
     end
 
-    current_user.cart.empty_cart
-    
     UserMailer.order_email(current_user).deliver_now
 
+    current_user.cart.empty_cart
+    
+    
     redirect_to :controller => 'items', :action => 'index'
   end
 

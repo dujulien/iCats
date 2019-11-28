@@ -25,11 +25,13 @@
       </p>
 
       <table align="center">
+      <% current_user.cart.items.each do |item| %>
         <tr>
-            <td>Img</td>
-            <td>Kitty</td>
-            <td>CAT TOUT MImi</td>
+            <td><% item.image_url %></td>
+            <td> <% item.title %> </td>
+            <td> <% item.description %> </td>
         </tr>
+      <% end %> 
       </table>
       <br>
       <br>
