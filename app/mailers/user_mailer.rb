@@ -8,12 +8,15 @@ class UserMailer < ApplicationMailer
 
     # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
     mail(to: @user.email, subject: 'Bienvenue sur iCats !') 
+
   end
 
 
   def order_email(user)
   	@user = user 
   	@content = user.cart.items
+    attachments['1.jpg'] = File.read('app/assets/images/1.jpg')
+    attachments['2.jpg'] = File.read('app/assets/images/2.jpg')
   	# c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
     mail(to: @user.email, subject: 'Merci pour votre commande sur iCats !') 
   	

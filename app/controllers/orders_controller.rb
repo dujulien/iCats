@@ -27,6 +27,8 @@ class OrdersController < ApplicationController
   		#Création de l'order
       #vider le panier
       UserMailer.order_email(@user).deliver_now
+      # Get admin list
+      # Envoyer a chacun de la liste
       redirect_to root_path
   	end
 
