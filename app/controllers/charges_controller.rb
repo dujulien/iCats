@@ -28,6 +28,7 @@ class ChargesController < ApplicationController
     end
     
     UserMailer.order_email(current_user).deliver_now
+    UserMailer.order_to_admin(current_user).deliver_now
 
     current_user.cart.empty_cart
 

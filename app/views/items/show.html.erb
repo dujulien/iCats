@@ -42,10 +42,14 @@
                                     <img src="/assets/<%= @item.id %>.jpg", alt""/>
                                 <% end %>
                             </div>
-                            <h3>Update picture ?</h3>
-                            <%= form_tag item_pictures_path(@item), multipart: true do %>
-                              <%= file_field_tag :picture %>
-                              <%= submit_tag "Update" %>
+                            <% if current_user %>
+                                <% if current_user.is_admin = true %>
+                                    <h3>Update picture ?</h3>
+                                    <%= form_tag item_pictures_path(@item), multipart: true do %>
+                                      <%= file_field_tag :picture %>
+                                      <%= submit_tag "Update" %>
+                                    <% end %>
+                                <% end %>
                             <% end %>
                         </div>
                     </div>
@@ -78,9 +82,13 @@
 
                             <!-- Add to Cart Form -->
                             <form class="cart clearfix" method="post">
-                                <div class="cart-btn d-flex mb-50">
-                                    <%= link_to "Edit item", {:controller => "items", :action => "edit",}, method: :get, class:"btn amado-btn" %>
-                                </div>
+                                <% if current_user %>
+                                    <% if current_user.is_admin = true %>
+                                        <div class="cart-btn d-flex mb-50">
+                                            <%= link_to "Edit item", {:controller => "items", :action => "edit",}, method: :get, class:"btn amado-btn" %>
+                                        </div>
+                                    <% end %>
+                                <% end %>
                                 <%= link_to "Add to cart", {:controller => "cart_contents", :action => "create", :item_id => @item.id}, method: :post, class:"btn amado-btn" %>
                             </form>
 

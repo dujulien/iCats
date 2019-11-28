@@ -11,13 +11,11 @@
   </head>
   <body>
     <div>
-      <img src="/assets/logo.png" alt="iCats logo" />
       <%= image_tag attachments['logo.png'].url %>
-
       <br>
       <br>
       <p>
-        Voici votre récapitulatif de votre commande <%= @user.name %>, pour un montant total de <%= @user.cart.total_price %>: 
+        Une nouvelle commande de <%= @user.name %> pour un montant total de : <%= @user.cart.total_price %> € !
       </p>
 
       <table align="center">
@@ -25,7 +23,6 @@
         <tr>
             <td> <%= item.title %> </td>
             <td> <%= item.description %> </td>
-            <td> <%= item.price %> </td>
         </tr>
       <% end %> 
       </table>
