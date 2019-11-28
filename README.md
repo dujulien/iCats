@@ -11,7 +11,7 @@ TEAM
 
 LIEN HEROKU
 
-https://i-cats-development.herokuapp.com/
+https://i-cats.herokuapp.com/
 
 
 GIT CLONE
