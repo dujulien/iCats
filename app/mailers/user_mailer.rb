@@ -13,4 +13,11 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Bienvenue sur iCats !') 
   end
 
+  def order_email(user)
+  	@user = user
+  	attachments['kitty.jpg'] = File.read(Dir.glob("#{Rails.root}/app/assets/1.jpg"))
+
+    mail(to: @user.email, subject: 'Thank you for your purchase !') 
+  end
+
 end
