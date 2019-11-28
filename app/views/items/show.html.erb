@@ -43,7 +43,7 @@
                                 <% end %>
                             </div>
                             <% if current_user %>
-                                <% if current_user.is_admin = true %>
+                                <% if current_user.is_admin == true %>
                                     <h3>Update picture ?</h3>
                                     <%= form_tag item_pictures_path(@item), multipart: true do %>
                                       <%= file_field_tag :picture %>
@@ -83,7 +83,7 @@
                             <!-- Add to Cart Form -->
                             <form class="cart clearfix" method="post">
                                 <% if current_user %>
-                                    <% if current_user.is_admin = true %>
+                                    <% if current_user.is_admin == true %>
                                         <div class="cart-btn d-flex mb-50">
                                             <%= link_to "Edit item", {:controller => "items", :action => "edit",}, method: :get, class:"btn amado-btn" %>
                                         </div>
