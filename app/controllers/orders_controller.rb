@@ -20,14 +20,7 @@ class OrdersController < ApplicationController
 
   	def create
       @user = current_user
-      @cart = @user.cart
-      @content = @cart.items
-      #confirmation stripe
-      #confirmation save
-  		#Création de l'order
-      #vider le panier
-      UserMailer.order_email(@user).deliver_now
-      redirect_to root_path
+
   	end
 
   	def edit
