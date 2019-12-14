@@ -3,10 +3,11 @@
 
 TEAM
 
+* Ombeline
 * Marius 
 * Yoni
 * Julien
-* youcef
+* Youcef
 
 
 LIEN HEROKU
@@ -19,4 +20,5 @@ GIT CLONE
 git clone   git@github.com:dujulien/iCats.git
 
 
-
+Modif - 1
+Modif - 2
